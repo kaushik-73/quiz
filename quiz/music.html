@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="style.css">
+    <title>Music</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="text-start">The Challenge</h1>
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-end">Logo</h1>
+            </div>
+        </div>
+        <div  class="row buttons">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h4 class="text-end">Scores</h4>
+                 <div id="question"></div>
+                 <input type="checkbox" id="opt1" name="option">
+                 <p id="optt1"></p><br>
+                 <input type="checkbox" id="opt2" name="option">
+                 <p id="optt2"></p><br>
+                 <input type="checkbox" id="opt3" name="optiton">
+                 <p id="optt3"></p><br>
+                 <input type="checkbox" id="opt4" name="optiton">
+                 <p id="optt4"></p><br>
+                 <a href="#" class="previous round">&#8249;</a>
+                 <a href="#" onclick="loadMore()" class="next round">&#8250;</a>
+                 
+            </div>
+                 
+
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <script>
+        function loadMore() {
+        fetch("dataset.json")
+            .then((response) => response.json())
+            .then((data) => {
+            console.log(data);
+            for (var i = 0; i < data.music.length; i++) {
+                console.log(data.music[i].question);
+                document.getElementById("question").innerHTML=data.music[i].question;
+               
+                document.getElementById("optt1").innerHTML=data.music[i].options;
+                document.getElementById("optt2").innerHTML=data.music[i].options;
+                document.getElementById("optt3").innerHTML=data.music[i].options;
+                document.getElementById("optt4").innerHTML=data.music[i].options;
+            
+
+      document.querySelector("#question").innerHTML = music;
+       }
+    });
+}
+    </script>
+    
+</body>
+</html>
